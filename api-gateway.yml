@@ -1,0 +1,29 @@
+# API Gateway configuration
+
+spring:
+  application:
+    name: api-gateway
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://auth-service:9000
+
+  cloud:
+    gateway:
+      routes:
+        # Route to Auth Service
+        - id: auth-service-route
+          uri: lb://auth-service # "lb://" means "use Eureka to find this service"
+          predicates:
+            - Path=/api/auth/**
+
+        # Route to Flashly Service
+        - id: flashly-service-route
+          uri: lb://flashly-service
+          predicates:
+            - Path=/api/flashcards/**
+
+server:
+  port: 8080
