@@ -1,0 +1,12 @@
+# Common configuration files
+
+# Eureka sever for service discovery and registration
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka/
+
+# Kafka server for messaging
+spring:
+  kafka:
+    bootstrap-servers: kafka:9092
