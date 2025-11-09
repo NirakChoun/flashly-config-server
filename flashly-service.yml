@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: flashly-service
+  datasource:
+    url: jdbc:postgresql://my-prod-db.com:5432/flashly_db
+  redis:
+    host: my-prod-redis.com
+
+server:
+  port: 8081
